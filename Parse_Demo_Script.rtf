@@ -1,0 +1,153 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1265
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww11800\viewh13420\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\b\fs32 \cf0 Set Up 
+\fs28 \
+(before demo starts)
+\b0\fs24 \
+\
+PUBLIC MODE on Facebook\
+\
+Browser:\
+1/ Facebook App, Basic Settings\
+2/ Parse App, Data Browser\
+3/ Parse App, Cloud Code\
+4/ Parse App, Push Notification, ready to send for test\
+5/ Parse App, Settings\
+6/ Gmail/Other (logged in showing emails, have one re-engagement available)\
+7/ Parse Hosting App\
+\
+\
+iOS Device (User 1, most likely yourself):\
+1/ Completed working app installed but not logged in\
+2/ On Facebook app settings, uninstall the app (so you see permissions screen)\
+\
+Simulator (Make it a test user since you\'92ll be spending most time here):\
+1/ Remove app from simulator\
+2/ Uninstall app from Facebook settings\
+3/ Remove test user\'92s entries from the Dashboard if they exist\
+4/ Remove test user\'92s User info from the Dashboard if it exists\
+5/ If possible, log in via FB app on simulator, or FB on m.facebook.com, or FB on iOS settings.\
+\
+Xcode Project:\
+1/ git checkout -f setup-initial \
+    (only if you\'92ve staged the various demo sections in branches, as I\'92ve done locally)\
+\
+2/ Start from freshly closed Xcode\
+\
+Sublime:\
+main.js\
+index.html\
+\
+Terminal:\
+Cloud code directory\
+Cloud code directory, temp\
+\
+\
+
+\b\fs32 Demo Time
+\fs28 \
+
+\b0\fs24 \
+
+\b\fs28 Setup, Data, and Users
+\b0\fs24 \
+\
+-- branch: setup-initial\
+git checkout -f setup-initial\
+\
+Step 1a: Parse Setup\
+  - Create an account on Parse (just mention this)\
+  - Create a Parse app (show the completed demo one)\
+  - Mention where to get the Parse Starter app\
+  - Show where to get app credentials\
+  - Show where in Xcode Parse initialization credentials are entered\
+\
+Step 1b: Facebook Setup\
+  - Become a Facebook developer (mention this)\
+  - Create an app (show completed demo one)\
+  - Mention where to download Facebook SDK\
+  - Add Facebook SDK to iOS app (show it already done in Xcode)\
+  - Add FacebookAppID, URL scheme info (show it already done in Xcode)\
+\
+-- branch: add-user\
+git checkout -f add-user\
+\
+Step 2: User Management\
+  - PFUser\
+  - PFLoginViewController\
+\
+-- branch: query-contest\
+git checkout -f query-contest\
+\
+Step 3: Objects and Queries\
+  - Show Dashboard and Contest Class\
+  - PFQuery, to get contest info\
+  - Show how this data is displayed in the main view (just the label)\
+\
+-- branch: add-contest-vote-contest\
+git checkout -f add-contest-vote-contest\
+\
+Step 4: More Objects, Add a New Contest\
+  - Pass in selected contest to addition view controller\
+  - PFObject, PFFile, Implement save on photo to create a new contest entry\
+\
+Step 5: More UI, Vote on Current Contest\
+  - PFQueryTableViewController\
+  - PFObject, increment, saveAllInBackground\
+  - Show error when trying to vote for another user. Cloud Code segue\
+\
+\
+
+\b\fs28 Cloud Code
+\b0\fs24 \
+\
+-- branch: cloud-module\
+git checkout -f cloud-module\
+\
+Step 6: Cloud Code\
+ - Cloud Function - Vote entry ACL bypass (talk about the development workflow, walk through code in main.js and Xcode changes)\
+ - Cloud Module - Image Module - Performance example (walk through code in main.js and Xcode changes)\
+ - Background Jobs - SendGrid (show last active flag code in Xcode, walk through code in main.js and show email received or trigger the email send by manipulating a last active field entry in the Data Browser)\
+\
+\
+
+\b\fs28 Push
+\b0\fs24 \
+\
+Step 7: Push\
+  - Talk about setup (iOS)\
+  - PFInstallation, registering a device\
+  - Push Console, mention silent notifications in iOS and JSON\
+  - Cloud Code and pushes (show afterSave hook on the Contest class and the push-related code)\
+\
+\
+
+\b\fs28 Analytics
+\b0\fs24 \
+\
+Step 8: Analytics\
+ - Default analytics, API requests, Push (show Analytics Dashboard)\
+ - Custom analytics (show code where event is triggered, show Analytics Dashboard and how data can be broken down).\
+\
+\
+
+\b\fs28 Hosting
+\b0\fs24 \
+\
+Step 9: Hosting\
+ - Configuration of domain (show in App settings, if one not already created, do so)\
+ - Talk about static files (show original index.html)\
+ - Deploy app promotion page (show modified index.html and deploy changes)\
+ - Mention express\
+\
+  \
+\
+\
+\
+\
+\
+}
